@@ -17,7 +17,7 @@ const RoomListComponent = () => {
 
     useEffect(() => {
       getList().then(res => {
-        //console.log(res); 서버에서 받아오는지 확인 ok
+        //console.log(res); //서버에서 받아오는지 확인 ok
         setRoomList(res);
       });
     }, [cnt]);
