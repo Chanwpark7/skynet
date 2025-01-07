@@ -6,6 +6,7 @@ import jobRouter from "./jobRouter";
 import deptInfoRouter from "./deptInfoRouter";
 import roomListRouter from "./roomListRouter";
 import bookingRouter from "./bookingRouter";
+import dayOffRouter from "./dayOffRouter";
 
 const root = createBrowserRouter([
     {
@@ -31,6 +32,10 @@ const root = createBrowserRouter([
     {
         path : 'booking',
         children : bookingRouter()
+    },
+    {
+        path : 'dayoff',
+        children : dayOffRouter()
     }
 ])
 

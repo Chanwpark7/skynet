@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import useCustomMove from "../../hooks/useCustomMove";
 import { getEmpList, getOne } from "../../api/jobApi";
-import PageComponent from "../common/PageComponent";
+import JobPageComponent from "../common/JobPageComponent";
 import { useParams } from "react-router-dom";
 
 const initState = {
@@ -89,7 +89,7 @@ const JobReadComponent = ({jobNo})=>{
             </div>
 
             <div>
-                <PageComponent
+                <JobPageComponent
                 serverData={employees} 
                 job={job}
                 movePage={moveToJobList}

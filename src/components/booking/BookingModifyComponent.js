@@ -37,6 +37,11 @@ const BookingModifyComponent = ({bookNo}) => {
     return (
         <div className="border-2 border-sky-200 mt-10 m-2 p-4">
             <div className="flex justify-center mt-10">
+                <div className="w-1/5 p-6 text-right font-bold">BookNo</div>
+                <div className="w-4/5 p-6 rounded-r border border-solid shadow-md">{booking.bookNo}</div>
+            </div>
+
+            <div className="flex justify-center mt-10">
                 <div className="relative mb-4 flex w-full flex-wrap items-stretch">
                     <div className="w-1/5 p-6 text-right font-bold">BookingDate</div>
                     <input className="w-4/5 p-6 rounded-r border border-solid border-neutral-300 shadow-md" 
