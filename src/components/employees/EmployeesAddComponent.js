@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useCustomMove from "../../hooks/useCustomMove";
 import { addOne } from "../../api/employeesApi";
+import { setALOne } from "../../api/annualLeaveApi";
 
 const initState = {
     empNo : 0 ,
@@ -24,8 +25,11 @@ const EmployeesAddComponent = () => {
     const {moveToList} = useCustomMove();
 
     const handleClickAdd = () => {
-        addOne(employees).then(()=>moveToList());
+        addOne(employees).then((data)=>{
+            setALOne(data).then(()=>moveToList());
+        });
     }
+    
 
     const handleChangeEmployees = (evt) => {
         employees[evt.target.name] = evt.target.value;

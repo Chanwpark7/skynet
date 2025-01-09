@@ -127,13 +127,13 @@ const EmployeesReadComponent = ({empNo})=>{
             <div className="flex justify-end p-4">
                 <button type="button" 
                 className="inline-block rounded p-4 m-2 text-xl w-32 text-white bg-black"
-                onClick={()=>moveToCommute(empNo)}>
+                onClick={()=>moveToCommute({empNo})}>
                     Commute
                 </button>
 
                 <button type="button" 
                 className="inline-block rounded p-4 m-2 text-xl w-40 text-white bg-black"
-                onClick={()=>moveToAnnualLeave(empNo)}>
+                onClick={()=>moveToAnnualLeave({empNo})}>
                     Annual Leave
                 </button>
 

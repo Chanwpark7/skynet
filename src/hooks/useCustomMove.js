@@ -66,6 +66,24 @@ const useCustomMove = () => {
         navigate({pathname:`../read/${pageParam.jobNo}`,search:queryStr})
     };
 
+    const moveToCommuteList = (pageParam) => {
+        let queryStr = '';
+
+        if(pageParam){
+            const pageNum = getNum(pageParam.page,1);
+            const sizeNum = getNum(pageParam.size,10);
+
+            queryStr = createSearchParams({
+                page : pageNum,
+                size : sizeNum
+            }).toString();
+        }else{
+            queryStr = queryDefault;
+        }
+
+        navigate({pathname:`../commute/${pageParam.empNo}`,search:queryStr})
+    };
+
     const moveToDeptInfoList = (pageParam) => {
         let queryStr = '';
 
@@ -106,7 +124,43 @@ const useCustomMove = () => {
         navigate({pathname:`../add`});
     }
 
-    return {page, size, moveToJobRead, moveToRead, moveToModify, moveToList, moveToJobList, moveToDeptInfoList, moveToRoomList, moveToAdd};
+    const moveToAnnualLeave = (pageParam) => {
+        let queryStr = '';
+
+        if(pageParam){
+            const pageNum = getNum(pageParam.page,1);
+            const sizeNum = getNum(pageParam.size,10);
+
+            queryStr = createSearchParams({
+                page : pageNum,
+                size : sizeNum
+            }).toString();
+        }else{
+            queryStr = queryDefault;
+        }
+
+        navigate({pathname : `../annualleave/${pageParam.empNo}`})
+    }
+
+    const moveToCommute = (pageParam) => {
+        let queryStr = '';
+
+        if(pageParam){
+            const pageNum = getNum(pageParam.page,1);
+            const sizeNum = getNum(pageParam.size,10);
+
+            queryStr = createSearchParams({
+                page : pageNum,
+                size : sizeNum
+            }).toString();
+        }else{
+            queryStr = queryDefault;
+        }
+
+        navigate({pathname : `../commute/${pageParam.empNo}`})
+    }
+
+    return {page, size, moveToCommute, moveToCommuteList, moveToAnnualLeave, moveToJobRead, moveToRead, moveToModify, moveToList, moveToJobList, moveToDeptInfoList, moveToRoomList, moveToAdd};
 }
 
 export default useCustomMove;
