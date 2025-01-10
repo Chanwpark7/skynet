@@ -26,12 +26,13 @@ export const putOne = async(empNo, commute)=>{
     return res.data;
 }
 
-// export const delALOne = async(empNo)=>{
-//     const res = await axios.delete(`${prefix}/${empNo}`);
-//     return res.data;
-// }
-
 export const setCheckIn = async(empNo)=>{
     const res = await axios.post(`${prefix}/set/${empNo}`);
+    return res.data;
+}
+
+export const getOneCommute = async(commNo) => {
+    const res = await axios.get(`${prefix}/read/${commNo}`);
+
     return res.data;
 }

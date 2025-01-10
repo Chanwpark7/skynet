@@ -30,6 +30,10 @@ const useCustomMove = () => {
         navigate({pathname:`../modify/${num}`,search:queryDefault});
     }
 
+    const moveToModifyCommute = (num) => {
+        navigate({pathname:`../commute/modify/${num}`,search:queryDefault});
+    }
+
     const moveToList = (pageParam) => {
         let queryStr = '';
 
@@ -160,7 +164,7 @@ const useCustomMove = () => {
         navigate({pathname : `../commute/${pageParam.empNo}`})
     }
 
-    return {page, size, moveToCommute, moveToCommuteList, moveToAnnualLeave, moveToJobRead, moveToRead, moveToModify, moveToList, moveToJobList, moveToDeptInfoList, moveToRoomList, moveToAdd};
+    return {page, size, moveToCommute, moveToModifyCommute, moveToCommuteList, moveToAnnualLeave, moveToJobRead, moveToRead, moveToModify, moveToList, moveToJobList, moveToDeptInfoList, moveToRoomList, moveToAdd};
 }
 
 export default useCustomMove;

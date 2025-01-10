@@ -20,7 +20,7 @@ const initState = {
 const CommuteListComponent = ({empNo})=>{
     const [commute, setCommute] = useState(initState);
 
-    const {page,size, moveToList,moveToCommuteList,moveToRead} = useCustomMove();
+    const {page,size, moveToList,moveToCommuteList,moveToRead,moveToModifyCommute} = useCustomMove();
 
     useEffect(() => {
         getCommuteList(empNo,[page,size]).then(res => {
@@ -48,7 +48,16 @@ const CommuteListComponent = ({empNo})=>{
                     key = {data.checkDate} 
                     className='flex w-full min-w-[400px] p-2 m-2 rounded shadow-md'
                     >
-                        {data.checkDate} / {data.checkInTime} / {data.checkOutTime}
+                        <div className="text-2xl justify-center w-full p-2 rounded shadow-md">
+                            {data.checkDate} / {data.checkInTime} / {data.checkOutTime}
+                        </div>
+                        <div className="flex justify-end p-4">
+                            <button type="button" 
+                            className="inline-block rounded p-4 m-2 text-xl w-40 text-white bg-gray-400"
+                            onClick={()=>moveToModifyCommute(data.commNo)}>
+                                Modify
+                            </button>
+                        </div>
                     </div>)
                 })}
             </div>

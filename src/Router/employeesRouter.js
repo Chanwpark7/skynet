@@ -5,6 +5,7 @@ import EmployeesAddPage from "../pages/employees/EmployeesAddPage.js";
 import EmployeesListPage from "../pages/employees/EmployeesListPage.js";
 import AnnualLeaveReadPage from "../pages/employees/AnnualLeaveReadPage.js";
 import CommuteListPage from "../pages/employees/CommuteListPage.js";
+import CommuteModifyPage from "../pages/employees/CommuteModifyPage.js";
 
 const employeesRouter = () => {
     return [
@@ -35,6 +36,10 @@ const employeesRouter = () => {
         {
             path : 'commute/:empNo',
             element : <CommuteListPage/>
+        },
+        {
+            path : 'commute/modify/:commNo',
+            element : <CommuteModifyPage/>
         }
     ]
 }
