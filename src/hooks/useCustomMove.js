@@ -34,6 +34,10 @@ const useCustomMove = () => {
         navigate({pathname:`../commute/modify/${num}`,search:queryDefault});
     }
 
+    const moveToReportReceived = (num) => {
+        navigate({pathname:`../../report/${num}`,search:queryDefault});
+    }
+
     const moveToList = (pageParam) => {
         let queryStr = '';
 
@@ -146,25 +150,7 @@ const useCustomMove = () => {
         navigate({pathname : `../annualleave/${pageParam.empNo}`})
     }
 
-    const moveToCommute = (pageParam) => {
-        let queryStr = '';
-
-        if(pageParam){
-            const pageNum = getNum(pageParam.page,1);
-            const sizeNum = getNum(pageParam.size,10);
-
-            queryStr = createSearchParams({
-                page : pageNum,
-                size : sizeNum
-            }).toString();
-        }else{
-            queryStr = queryDefault;
-        }
-
-        navigate({pathname : `../commute/${pageParam.empNo}`})
-    }
-
-    return {page, size, moveToCommute, moveToModifyCommute, moveToCommuteList, moveToAnnualLeave, moveToJobRead, moveToRead, moveToModify, moveToList, moveToJobList, moveToDeptInfoList, moveToRoomList, moveToAdd};
+    return {page, size, moveToReportReceived, moveToModifyCommute, moveToCommuteList, moveToAnnualLeave, moveToJobRead, moveToRead, moveToModify, moveToList, moveToJobList, moveToDeptInfoList, moveToRoomList, moveToAdd};
 }
 
 export default useCustomMove;

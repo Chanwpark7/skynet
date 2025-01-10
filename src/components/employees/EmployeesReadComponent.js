@@ -23,7 +23,7 @@ const EmployeesReadComponent = ({empNo})=>{
     const [employees, setEmployees] = useState(initState);
     let cnt = 0;
 
-    const {page,moveToList, moveToModify, moveToCommute, moveToAnnualLeave} = useCustomMove();
+    const {page, moveToReportReceived, moveToList, moveToModify, moveToCommuteList, moveToAnnualLeave} = useCustomMove();
 
     useEffect(()=>{
         getOne(empNo).then(res => {
@@ -127,7 +127,13 @@ const EmployeesReadComponent = ({empNo})=>{
             <div className="flex justify-end p-4">
                 <button type="button" 
                 className="inline-block rounded p-4 m-2 text-xl w-32 text-white bg-black"
-                onClick={()=>moveToCommute({empNo})}>
+                onClick={()=>moveToReportReceived(empNo)}>
+                    Report
+                </button>
+
+                <button type="button" 
+                className="inline-block rounded p-4 m-2 text-xl w-32 text-white bg-black"
+                onClick={()=>moveToCommuteList({empNo})}>
                     Commute
                 </button>
 
