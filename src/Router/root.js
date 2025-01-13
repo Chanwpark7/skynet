@@ -8,6 +8,7 @@ import roomListRouter from "./roomListRouter";
 import bookingRouter from "./bookingRouter";
 import dayOffRouter from "./dayOffRouter";
 import employeesRouter from "./employeesRouter";
+import reportRouter from "./reportRouter";
 
 const root = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ const root = createBrowserRouter([
     {
         path : 'employees',
         children : employeesRouter()
+    },
+    {
+        path : 'report',
+        children : reportRouter()
     }
 ])
 
