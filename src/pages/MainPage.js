@@ -1,8 +1,14 @@
+import { Link } from 'react-router';
+import MainLayout from '../layouts/MainLayout';
+
 const MainPage = () => {
-
-    return (
-        <div>This is Main Page</div>
-    )
-}
-
+  return (
+    <>
+      <MainLayout>
+        <div>MainPage</div>
+      </MainLayout>
+      <Link to={'/mail'}>mail</Link>
+    </>
+  );
+};
 export default MainPage;

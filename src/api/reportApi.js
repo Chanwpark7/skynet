@@ -1,4 +1,4 @@
-import axios from "axios";
+import { jwtAxios } from '../util/JWTutil';
 
 export const API_SERVER_HOST = 'http://localhost:8080';
 
@@ -6,7 +6,7 @@ const prefix = `${API_SERVER_HOST}/api/report`;
 
 export const getReceivedList = async (empNo,pageParam) => {
     const [page, size] = pageParam;
-    const res = await axios.get(`${prefix}/list/received/${empNo}`,{
+    const res = await jwtAxios.get(`${prefix}/list/received/${empNo}`,{
         params : {
             page : page,
             size : size
@@ -18,7 +18,7 @@ export const getReceivedList = async (empNo,pageParam) => {
 
 export const getSentList = async (empNo,pageParam) => {
     const [page, size] = pageParam;
-    const res = await axios.get(`${prefix}/list/sent/${empNo}`,{
+    const res = await jwtAxios.get(`${prefix}/list/sent/${empNo}`,{
         params : {
             page : page,
             size : size
@@ -29,13 +29,13 @@ export const getSentList = async (empNo,pageParam) => {
 }
 
 export const getOne = async (reportNo) => {
-    const res = await axios.get(`${prefix}/read/${reportNo}`);
+    const res = await jwtAxios.get(`${prefix}/read/${reportNo}`);
     
     return res.data;
 }
 
 export const putOne = async(reportNo, report)=>{
-    const res = await axios.put(`${prefix}/modify/${reportNo}`,report);
+    const res = await jwtAxios.put(`${prefix}/modify/${reportNo}`,report);
     return res.data;
 }
 
@@ -43,6 +43,6 @@ export const addReport = async(empNo,employees)=>{
     const header = {
         headers : {"Content-Type" : "multipart/form-data"}
       };
-    const res = await axios.post(`${prefix}/register/${empNo}`,employees,header);
+    const res = await jwtAxios.post(`${prefix}/register/${empNo}`,employees,header);
     return res.data;
 }
